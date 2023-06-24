@@ -1,6 +1,11 @@
 from connect_four import *
 
+# The following are a list of functions to count the streaks a given player has in any one direction.
 
+# Note that there is no function to count the streak downwards since a piece cannot be placed
+# directly below another piece.
+
+# ---------------------------------------------------------------------------------------------------
 def right_streak_check(board, symbol):
     # Keep track of streak
     right_streak = 0
@@ -202,8 +207,9 @@ def down_left_streak_check(board, symbol):
                         down_left_streak += i - 1
 
     return down_left_streak
+# ---------------------------------------------------------------------------------------------------
 
-
+# Sum all the streaks for a given player
 def total_streak_check(board, symbol):
 
     # Keep track of streak
@@ -220,6 +226,8 @@ def total_streak_check(board, symbol):
     return total_streak
 
 
+# Find the current advantage for each player based on their total streaks,
+# then return the difference so the AI can evaluate any given board scenario
 def my_evaluate_board(board):
     # X wins
     if has_won(board, "X"):
