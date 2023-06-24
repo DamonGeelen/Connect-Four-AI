@@ -14,7 +14,7 @@ To run the Connect Four AI, you'll need to have Python installed on your system.
 
 1. Clone this repository to your local machine using the following command:
    ```
-   git clone https://github.com/your-username/connect-four-ai.git
+   git clone https://github.com/damongeelen/connect-four-ai.git
    ```
 
 2. Navigate to the project directory:
