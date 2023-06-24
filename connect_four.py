@@ -1,6 +1,6 @@
 from copy import deepcopy
 import random
-random.seed(108)
+random.seed(0)
 
 def print_board(board):
     print()
