@@ -1,6 +1,7 @@
 from copy import deepcopy
 import random
-random.seed(0)
+from datetime import datetime
+random.seed(datetime.now().timestamp())
 
 def print_board(board):
     print()
