@@ -38,7 +38,7 @@ def two_ai_game():
 
         if not game_is_over(my_board):
             # The "O" player finds their best move
-            result = minimax(my_board, False, 3, -float("Inf"), float("Inf"), codecademy_evaluate_board)
+            result = minimax(my_board, False, 6, -float("Inf"), float("Inf"), codecademy_evaluate_board)
             print("O Turn\nO selected ", result[1])
             select_space(my_board, result[1], "O")
             print_board(my_board)

@@ -37,8 +37,8 @@ def left_streak_check(board, symbol):
     # Keep track of checked spaces
     checked = []
 
-    # Check for streaks moving to the right
-    for col in range(len(board) - 1, 3, -1):
+    # Check for streaks moving to the left
+    for col in range(len(board) - 1, 2, -1):
         for row in range(len(board[0])):
 
             # Skip checked spaces
@@ -53,7 +53,7 @@ def left_streak_check(board, symbol):
                         i += 1
 
                     # Only count streak if it is not blocked
-                    if col + i >= 0 and board[col - i][row] == ' ':
+                    if col - i >= 0 and board[col - i][row] == ' ':
                         left_streak += i - 1
 
     return left_streak
@@ -66,9 +66,9 @@ def up_streak_check(board, symbol):
     # Keep track of checked spaces
     checked = []
 
-    # Check for streaks moving downward
+    # Check for streaks moving upward
     for col in range(len(board)):
-        for row in range(len(board[0]) - 3, 1, -1):
+        for row in range(len(board[0]) - 1, 2, -1):
 
             # Skip checked spaces
             if [col, row] in checked:
@@ -82,10 +82,126 @@ def up_streak_check(board, symbol):
                         i += 1
 
                     # Only count streak if it is not blocked
-                    if row + i >= 0 and board[col][row - i] == ' ':
+                    if row - i >= 0 and board[col][row - i] == ' ':
                         up_streak += i - 1
 
     return up_streak
+
+
+def up_right_streak_check(board, symbol):
+    # Keep track of streak
+    up_right_streak = 0
+
+    # Keep track of checked spaces
+    checked = []
+
+    # Check for streaks moving upward and to the right
+    for col in range(len(board) - 3):
+        for row in range(len(board[0]) - 1, 2, -1):
+
+            # Skip checked spaces
+            if [col, row] in checked:
+                continue
+
+            else:
+                if board[col][row] == symbol:
+                    i = 1
+                    while col + i < 7 and row - i >= 0 and board[col + i][row - i] == symbol:
+                        checked.append([col + i, row - i])
+                        i += 1
+
+                    # Only count streak if it is not blocked
+                    if col + i < 7 and row - i >= 0 and board[col + i][row - i] == ' ':
+                        up_right_streak += i - 1
+
+    return up_right_streak
+
+
+def down_right_streak_check(board, symbol):
+    # Keep track of streak
+    down_right_streak = 0
+
+    # Keep track of checked spaces
+    checked = []
+
+    # Check for streaks moving downward and to the right
+    for col in range(len(board) - 3):
+        for row in range(len(board[0]) - 3):
+
+            # Skip checked spaces
+            if [col, row] in checked:
+                continue
+
+            else:
+                if board[col][row] == symbol:
+                    i = 1
+                    while col + i < 7 and row + i < 7 and board[col + i][row + i] == symbol:
+                        checked.append([col + i, row + i])
+                        i += 1
+
+                    # Only count streak if it is not blocked
+                    if col + i < 7 and row + i < 7 and board[col + i][row + i] == ' ':
+                        down_right_streak += i - 1
+
+    return down_right_streak
+
+
+def up_left_streak_check(board, symbol):
+    # Keep track of streak
+    up_left_streak = 0
+
+    # Keep track of checked spaces
+    checked = []
+
+    # Check for streaks moving upward and to the left
+    for col in range(len(board) - 1, 2, -1):
+        for row in range(len(board[0]) - 1, 2, -1):
+
+            # Skip checked spaces
+            if [col, row] in checked:
+                continue
+
+            else:
+                if board[col][row] == symbol:
+                    i = 1
+                    while col - i >= 0 and row - i >= 0 and board[col - i][row - i] == symbol:
+                        checked.append([col + i, row - i])
+                        i += 1
+
+                    # Only count streak if it is not blocked
+                    if col - i >= 0 and row - i >= 0 and board[col - i][row - i] == ' ':
+                        up_left_streak += i - 1
+
+    return up_left_streak
+
+
+def down_left_streak_check(board, symbol):
+    # Keep track of streak
+    down_left_streak = 0
+
+    # Keep track of checked spaces
+    checked = []
+
+    # Check for streaks moving downward and to the left
+    for col in range(len(board) - 1, 2, -1):
+        for row in range(len(board[0]) - 3):
+
+            # Skip checked spaces
+            if [col, row] in checked:
+                continue
+
+            else:
+                if board[col][row] == symbol:
+                    i = 1
+                    while col - i >= 0 and row + i < 7 and board[col - i][row + i] == symbol:
+                        checked.append([col + i, row + i])
+                        i += 1
+
+                    # Only count streak if it is not blocked
+                    if col - i >= 0 and row + i < 7 and board[col - i][row + i] == ' ':
+                        down_left_streak += i - 1
+
+    return down_left_streak
 
 
 def total_streak_check(board, symbol):
@@ -94,7 +210,11 @@ def total_streak_check(board, symbol):
     total_streak = sum([
         right_streak_check(board, symbol),
         left_streak_check(board, symbol),
-        up_streak_check(board, symbol)
+        up_streak_check(board, symbol),
+        up_right_streak_check(board, symbol),
+        down_right_streak_check(board, symbol),
+        up_left_streak_check(board, symbol),
+        down_right_streak_check(board, symbol)
     ])
 
     return total_streak
