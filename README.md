@@ -51,7 +51,7 @@ This project is licensed under the [MIT License](LICENSE). Feel free to use, mod
 
 ## Acknowledgments
 
-- The Connect Four game logic used in this project is based on the version provided by Codecademy.com, available [here](https://www.codecademy.com/courses/learn-the-basics-of-artificial-intelligence-with-minimax/projects/minimax-connect-four).
+- The Connect Four game logic used in this project (found in connect_four.py) is based on the version provided by Codecademy.com, available [here](https://www.codecademy.com/courses/learn-the-basics-of-artificial-intelligence-with-minimax/projects/minimax-connect-four).
 
 ## Contact
 
