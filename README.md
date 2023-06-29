@@ -6,7 +6,7 @@ This repository contains an implementation of a Connect Four AI that plays a con
 
 Connect Four is a classic two-player game played on a grid board. The goal of the game is to be the first player to connect four of their own colored discs in a row, either vertically, horizontally, or diagonally.
 
-The game is played in turns, with each player taking their respective positions. The AI player in this implementation uses a combination of strategies and heuristics to make intelligent moves and maximize its chances of winning.
+The game is played in turns, with each player taking their respective positions. The AI player in this implementation is able to look ahead anywhere from 1 to 7 turn(s) to make intelligent moves and maximize its chances of winning.
 
 ## Installation
 
@@ -39,7 +39,7 @@ The AI player will then make its move, and the game will continue until there is
 
 ## Customization
 
-If you want to customize the game or experiment with different strategies, you can modify the source code in `connect_four.py`. Feel free to explore and adapt the AI algorithm to suit your needs.
+If you want to customize the game or see how it is implimented, you can modify the source code in `connect_four.py`. Feel free to explore and adapt the AI algorithm to suit your needs.
 
 ## Contributing
 
