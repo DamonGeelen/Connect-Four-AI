@@ -1,4 +1,5 @@
 from copy import deepcopy
+from functools import lru_cache
 import random
 from datetime import datetime
 random.seed(datetime.now().timestamp())
@@ -198,6 +199,7 @@ def count_streaks(board, symbol):
             count += num_in_streak
     return count
 
+@lru_cache(typed = True)
 def minimax(input_board, is_maximizing, depth, alpha, beta, eval_function):
   if game_is_over(input_board) or depth == 0:
         return [eval_function(input_board), ""]

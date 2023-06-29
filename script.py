@@ -56,7 +56,7 @@ def user_vs_ai_game():
     print("You will be playing with the 'O' pieces")
     print("while the computer plays with the 'X' pieces.\n")
     difficulty = int(input("Please select the difficulty by entering a number between 1 and 7: "))
-    while 1 > difficulty > 7:
+    while 1 > difficulty or difficulty > 7:
         print("Error: Invalid Input")
         difficulty = int(input("Please select the difficulty by entering a number between 1 and 7: "))
     os.system('cls' if os.name == 'nt' else 'clear')
